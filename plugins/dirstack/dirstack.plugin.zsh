@@ -15,3 +15,5 @@ DIRSTACKSIZE='20'
 setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME
 setopt PUSHD_IGNORE_DUPS
 setopt PUSHD_MINUS
+
+mkdir -p ~/.cache/zsh
