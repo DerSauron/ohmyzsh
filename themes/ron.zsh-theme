@@ -7,13 +7,13 @@ typeset +H my_gray="$FG[242]"
 typeset +H my_orange="$FG[214]"
 
 # primary prompt
-PS1='$FG[033]%~ $(git_prompt_info)$(hg_prompt_info)$FG[105]%(!.#.$)%{$reset_color%} '
+PS1='$FG[033]%~ %(!.%{$FG[202]%}#.%{$FG[105]%}$)%{$reset_color%} '
 PS2='%{$fg[red]%}\ %{$reset_color%}'
-RPS1='${return_code}'
 
 # right prompt
+RPS1='${return_code}'
 (( $+functions[virtualenv_prompt_info] )) && RPS1+='$(virtualenv_prompt_info)'
-RPS1+=' $my_gray%n@%m%{$reset_color%}%'
+RPS1+=' $(git_prompt_info)$(hg_prompt_info)$my_gray%n@%m%{$reset_color%}%'
 
 # git settings
 ZSH_THEME_GIT_PROMPT_PREFIX="$FG[075]($FG[078]"
