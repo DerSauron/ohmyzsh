@@ -42,6 +42,10 @@ export FTG_OVERLAY_SCROLLING=0
 # QT config
 export QT_LOGGING_RULES="*.debug=false;va.*=true"
 
+# path
+path=(~/bin $path)
+export PATH
+
 # macros
 function cgrep() {
     [ "$1" == "" ] && exit 1
