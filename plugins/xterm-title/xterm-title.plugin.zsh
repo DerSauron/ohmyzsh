@@ -3,13 +3,20 @@
 autoload -Uz add-zsh-hook
 
 function xterm_title_precmd() {
-    print -Pn -- '\e]2;%n@%m %~\a'
-    [[ "$TERM" == 'screen'* ]] && print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-}\e\\'
+    print -Pn -- '\e]0;%2~\a'
 }
+
 function xterm_title_preexec() {
-    print -Pn -- '\e]2;%n@%m %~ %# ' && print -n -- "${(q)1}\a"
-    [[ "$TERM" == 'screen'* ]] && { print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-} %# ' && print -n -- "${(q)1}\e\\"; }
+    local cmd
+    if [ "$1" != "" ]; then
+        cmd="${(q)1}"
+    else
+        cmd="${(q)2}"
+    fi
+    cmd=$(print -Pn "%10>...>$cmd" | tr -d "\n")
+    print -Pn -- "\e]0;%1~ : ${cmd}\a"
 }
+
 if [[ "$TERM" == (alacritty*|gnome*|konsole*|putty*|rxvt*|screen*|tmux*|xterm*) ]]; then
     add-zsh-hook -Uz precmd xterm_title_precmd
     add-zsh-hook -Uz preexec xterm_title_preexec
