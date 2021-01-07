@@ -1,5 +1,5 @@
 # ron.zsh-theme
-# Based onn af-magic
+# Based on af-magic
 
 # settings
 typeset +H return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
