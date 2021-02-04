@@ -3,7 +3,7 @@
 autoload -Uz add-zsh-hook
 
 function xterm_title_precmd() {
-    print -Pn -- '\e]0;%2~\a'
+    print -Pn -- '\e]0;%2~ %(!.#.$)\a'
 }
 
 function xterm_title_preexec() {

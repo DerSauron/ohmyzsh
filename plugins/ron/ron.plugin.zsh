@@ -48,7 +48,7 @@ export SYSTEMD_PAGER=
 export MAKEFLAGS="-j$(nproc)"
 
 # GTK config
-export FTG_OVERLAY_SCROLLING=0
+export GTK_OVERLAY_SCROLLING=0
 
 # QT config
 export QT_LOGGING_RULES="*.debug=false;va.*=true"

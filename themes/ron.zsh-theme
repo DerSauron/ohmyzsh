@@ -1,5 +1,5 @@
 # ron.zsh-theme
-# Based onn af-magic
+# Based on af-magic
 
 # settings
 typeset +H return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
@@ -12,8 +12,9 @@ PS2='%{$fg[red]%}\ %{$reset_color%}'
 
 # right prompt
 RPS1='${return_code}'
-(( $+functions[virtualenv_prompt_info] )) && RPS1+='$(virtualenv_prompt_info)'
-RPS1+=' $(git_prompt_info)$(hg_prompt_info)$my_gray%n@%m%{$reset_color%}%'
+#(( $+functions[virtualenv_prompt_info] )) && RPS1+='$(virtualenv_prompt_info)'
+#RPS1+=' $(git_prompt_info)$(hg_prompt_info)'
+RPS1+='$my_gray%n@%m%{$reset_color%}%'
 
 # git settings
 ZSH_THEME_GIT_PROMPT_PREFIX="$FG[075]($FG[078]"
